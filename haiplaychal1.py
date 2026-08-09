@@ -18,24 +18,15 @@ app = marimo.App(width="medium")
 
 
 @app.cell
-async def _():
-    import micropip
-
-    await micropip.install("seaborn")
-    return
-
-
-@app.cell
 def _():
     import marimo as mo
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
-    import seaborn as sns
     from sklearn.preprocessing import OneHotEncoder
     from sklearn.model_selection import KFold
 
-    return KFold, OneHotEncoder, mo, np, pd, plt, sns
+    return KFold, OneHotEncoder, mo, np, pd, plt
 
 
 @app.cell(hide_code=True)
@@ -74,14 +65,21 @@ def _(train):
 
 
 @app.cell
-def _(plt, sns, train):
-    missing_pct = train.isna().mean().sort_values(ascending=False)*100
-    missing_pct = missing_pct[missing_pct>0]
+def _(plt, train):
+    missing_pct = train.isna().mean().sort_values(ascending=False) * 100
+    missing_pct = missing_pct[missing_pct > 0]
 
-    fig, ax = plt.subplots(figsize=(8,5))
-    sns.barplot(x=missing_pct.values, y=missing_pct.index, color="#4C72B0", ax=ax)
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    ax.barh(
+        missing_pct.index,
+        missing_pct.values
+    )
+
     ax.set_xlabel("% missing")
     ax.set_title("Missing Value per Column (train.csv)")
+    ax.invert_yaxis()
+
     plt.tight_layout()
     plt.show()
     return (missing_pct,)
@@ -146,20 +144,50 @@ def _(mo):
 
 
 @app.cell
-def _(plt, sns, train_labeled):
-    fig1, ax1 = plt.subplots(figsize=(8,5))
-    sns.histplot(train_labeled["quality_metric"], bins=15, kde=True, ax=ax1)
-    ax1.axvline(train_labeled["quality_metric"].mean())
-    ax1.axvline(train_labeled["quality_metric"].median(), linestyle=":")
+def _(plt, train_labeled):
+    fig1, ax1 = plt.subplots(figsize=(8, 5))
+
+    ax1.hist(
+        train_labeled["quality_metric"].dropna(),
+        bins=15
+    )
+
+    mean_val = train_labeled["quality_metric"].mean()
+    median_val = train_labeled["quality_metric"].median()
+
+    ax1.axvline(mean_val, label=f"Mean: {mean_val:.2f}")
+    ax1.axvline(
+        median_val,
+        linestyle=":",
+        label=f"Median: {median_val:.2f}"
+    )
+
     ax1.set_title("Distribusi Quality Metric")
+    ax1.set_xlabel("Quality Metric")
+    ax1.set_ylabel("Frequency")
+    ax1.legend()
+
     plt.tight_layout()
     plt.show()
     return
 
 
 @app.cell
-def _(sns, train_labeled):
-    sns.scatterplot(data=train_labeled, x="critic_score", y="quality_metric")
+def _(plt, train_labeled):
+    fig2, ax2 = plt.subplots(figsize=(8, 5))
+
+    ax2.scatter(
+        train_labeled["critic_score"],
+        train_labeled["quality_metric"],
+        alpha=0.7
+    )
+
+    ax2.set_xlabel("Critic Score")
+    ax2.set_ylabel("Quality Metric")
+    ax2.set_title("Critic Score vs Quality Metric")
+
+    plt.tight_layout()
+    plt.show()
     return
 
 
