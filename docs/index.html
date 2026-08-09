@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>haiplaychal1</title>
+    <script type="module" crossorigin src="./assets/index-Gv23EHlE.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-TXkS1QI3.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-BlG0ZrO0.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-Bj1aDYRI.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-B3qBwwSJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-Blw4afVn.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-C0195JsF.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-DOVIEEPN.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-i2ImZxgc.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-BUCH2FMc.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-Dun7Qe4B.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-B7U4xkIN.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-XrBBnd7s.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-DYvqRARy.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-B92a4ePY.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-DDGiD1NW.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CSu739Rf.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-CTDqNQr6.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-CCi6aOPm.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BLN8PNJV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-w-Qo9n0R.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-rzLRd0j9.js">
+    <link rel="modulepreload" crossorigin href="./assets/x-C-Eq0ag8.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BP75_5jJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-4bZlU7jl.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-BwJoaaDM.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-D91BmmQi.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-CkiqGLcK.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-DvLSfCY5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-DKD1r8uL.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-_9WLTEyt.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-H_cgTO0M.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-BWBBpCkT.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-CDyU_g2F.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-BmukRjSi.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-D2igisxY.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-B-Q7J_6d.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-ImXS-885.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-C8EV1PoE.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-9-v2bhoi.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-lLOBhc-1.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-CbdaHKzX.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-Bxv9B31g.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-DbOq36rN.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings--BknHX9C.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-CGKw_kwj.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-DoEg0XwL.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-DGx5Af-C.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-BKO-pHK6.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-12S8I4CH.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DYEuVkEX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CiVShZKM.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BJZAIIze.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-aRc_dRed.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DnjsPBRJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DcwTQG1A.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CPjTeT8p.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DI1-Z60I.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-FMMSUPAS.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-Ct2FT81-.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CWmnYhGI.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-D5tzp-Y6.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BT6B8Bon.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-CsYTPAhW.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-OiXznToA.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CKO8g4BU.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-BNL5rxQw.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CJLUCcQg.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-C5HnBH5U.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-WiYBwhUO.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-Bb8Lz8ko.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-BCVepWLJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-JDKr83KO.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-rmawRqQP.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-BUSmWJKC.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFPaAUK_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-4-Qvf4uR.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-5hBv4sjD.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-JxFwu-3G.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-fY-ZfT0b.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-CWQ4BYr-.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BJVx3eBW.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-jlwhGxSb.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-BS_NcSch.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-dHmZR8bI.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-wcQA1Np1.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-DZ4glj3f.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-Bxb1_Gtw.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-3iHFdt22.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-neDQUo4Q.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-C1rWkDWe.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-DbljozeY.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-Rxc-B11B.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-BttHlyvs.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-Bxz_8e44.js">
+    <link rel="modulepreload" crossorigin href="./assets/sparkles-DUCpRFlS.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-Cu5WMawt.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-DzTD8LVq.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-BOZA7gbn.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-CYq4mK5a.js">
+    <link rel="modulepreload" crossorigin href="./assets/tree-actions-BiQ4VzX-.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-D-V4psAa.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-CN9yTa5s.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-B6HBbAwF.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-Bg5iAViP.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-A-Ant1Ad.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-Dx_STMJD.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-CYQpNADu.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-CzJx-MnJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-Dqxie4gq.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-BsxD35VE.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-Bcz1Zikb.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-PgHhDa-M.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DwYUg-o4.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-CH2plyy9.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-j6fR_dBA.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-BSxEOIn2.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-DzmLpc9A.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-CCTAhdFi.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-CjNeNXDB.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-D7naiWNs.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-C2LWzsCZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-B9D0JO9U.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-lG8j6oqk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-rtpVEy3J.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-D4GMDkIf.js">
+    <link rel="modulepreload" crossorigin href="./assets/RSPContexts-WiCgGm__.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-D-tcnZC7.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-C_B8Ux9M.js">
+    <link rel="modulepreload" crossorigin href="./assets/external-link-BOlXZUla.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-dL5J5ZsZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-AgXtozBz.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-72W0TZ3L.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-Z-MD3n3J.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-D2UI9WX5.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-iDRxid4h.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DNNRTPQJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-C7opZZRp.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-DREOGG_c.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-CIPE8AIY.js">
+    <link rel="modulepreload" crossorigin href="./assets/radio-group-CcU5wNVj.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DBlzcHYf.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-OVajJBPR.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-CboCOq4o.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-B30N1GS0.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-CYfbPYQ0.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-DAu6VO6j.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-CJH9JNGH.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-5XI2VU-q.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-CODNoWOy.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-90X9nql5.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-852X_cqy.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-BNTWOaI9.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-Tp7rARFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-C-qh_et5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-CsW0tABf.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-CsGOoEZv.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-CqjrpwRC.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-W6ZZMHnc.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-DtCcemo9.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-sLaKP2vj.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-BYlqbYKI.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-Bl8_FVn8.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-CFj86iac.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-CSMoa-ga.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-jdbI9Q8O.js">
+    <link rel="modulepreload" crossorigin href="./assets/semaphore-C-Nli4KG.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-hLJmVjNJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/pathUtils-icFgkNy9.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-C638SUfx.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-gYgfF8y5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasPath-hMc_3QZy.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-CSsM95b1.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-Bd5tsfm_.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-D1xb4gl6.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-aSiY8T7C.js">
+    <link rel="modulepreload" crossorigin href="./assets/globe-Dwo3iXzC.js">
+    <link rel="modulepreload" crossorigin href="./assets/house-DS0r7dNZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-DFICx2Qv.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-BL4YVsPy.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-D0TWQ6iT.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-BVzo2MHf.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-BQtz7-np.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-8Nlyq3mV.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "# /// script\n# requires-python = \"\u003E=3.12\"\n# dependencies = [\n#     \"marimo\u003E=0.23.16\",\n#     \"matplotlib==3.11.1\",\n#     \"numpy==2.5.1\",\n#     \"pandas==3.0.5\",\n#     \"scikit-learn==1.9.0\",\n#     \"xgboost\",\n# ]\n# ///\n\nimport marimo\n\n__generated_with = \"0.23.16\"\napp = marimo.App(width=\"medium\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import pandas as pd\n    import numpy as np\n    import matplotlib.pyplot as plt\n    from sklearn.preprocessing import OneHotEncoder\n    from sklearn.model_selection import KFold\n\n    return KFold, OneHotEncoder, mo, np, pd, plt\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # EDA\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(pd):\n    train = pd.read_csv(\"./dataset/train.csv\")\n    test = pd.read_csv(\"./dataset/test.csv\")\n    return test, train\n\n\n@app.cell\ndef _(test, train):\n    print(\"train:\", train.shape)\n    print(\"test:\", test.shape)\n    train.head()\n    return\n\n\n@app.cell\ndef _(train):\n    train.info()\n    return\n\n\n@app.cell\ndef _(train):\n    train.describe()\n    return\n\n\n@app.cell\ndef _(plt, train):\n    missing_pct = train.isna().mean().sort_values(ascending=False) * 100\n    missing_pct = missing_pct[missing_pct \u003E 0]\n\n    fig, ax = plt.subplots(figsize=(8, 5))\n\n    ax.barh(\n        missing_pct.index,\n        missing_pct.values\n    )\n\n    ax.set_xlabel(\"% missing\")\n    ax.set_title(\"Missing Value per Column (train.csv)\")\n    ax.invert_yaxis()\n\n    plt.tight_layout()\n    plt.show()\n    return (missing_pct,)\n\n\n@app.cell\ndef _(missing_pct):\n    print(missing_pct)\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Insight dari missing values\n    100% release_date_df3 dan categories gaguna karena missing semua. Maka, drop aja! Sisanya, kita coba replace pake mean or drop juga\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(test, train):\n    # Drop kolom yang 100% kosong DI TEST (karena percuma jadi fitur kalau test-nya kosong semua)\n    cols_to_drop = [\"categories\", \"release_date_df3\", \"last_update\", \n                     \"NA_Sales\", \"EU_Sales\", \"JP_Sales\", \"Other_Sales\", \"other_sales\",\n                     \"release_date\"]  # release_date juga di-drop karena 95% missing di test\n\n    train_labeled = train.drop(columns=cols_to_drop)\n    test_labeled = test.drop(columns=cols_to_drop)\n\n    # developer cuma missing dikit (4.7% train, 0.1% test) -\u003E aman diisi, JANGAN di-drop barisnya\n    train_labeled['developer'] = train_labeled['developer'].fillna('Unknown')\n    test_labeled['developer'] = test_labeled['developer'].fillna('Unknown')\n\n    # untuk kolom numerik lain yang mungkin masih ada NaN, isi pakai mean DARI TRAIN\n    # (bukan mean masing-masing, biar konsisten \u0026 tidak bocor info)\n    numeric_cols = train_labeled.select_dtypes(include='number').columns.drop('quality_metric', errors='ignore')\n    train_means = train_labeled[numeric_cols].mean()\n\n    train_labeled[numeric_cols] = train_labeled[numeric_cols].fillna(train_means)\n    test_labeled[numeric_cols.intersection(test_labeled.columns)] = test_labeled[numeric_cols.intersection(test_labeled.columns)].fillna(train_means)\n\n    print(f\"train.csv rows: {len(train)}\")\n    print(f\"train_labeled rows: {len(train_labeled)}\")  # harusnya ~56145, tidak menyusut\n    print(f\"test.csv rows: {len(test)}\")\n    print(f\"test_labeled rows: {len(test_labeled)}\")     # harusnya tetap 68983, tidak menyusut\n    return test_labeled, train_labeled\n\n\n@app.cell\ndef _(train_labeled):\n    train_labeled.head()\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Plotting trend dan distribusi\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(plt, train_labeled):\n    fig1, ax1 = plt.subplots(figsize=(8, 5))\n\n    ax1.hist(\n        train_labeled[\"quality_metric\"].dropna(),\n        bins=15\n    )\n\n    mean_val = train_labeled[\"quality_metric\"].mean()\n    median_val = train_labeled[\"quality_metric\"].median()\n\n    ax1.axvline(mean_val, label=f\"Mean: {mean_val:.2f}\")\n    ax1.axvline(\n        median_val,\n        linestyle=\":\",\n        label=f\"Median: {median_val:.2f}\"\n    )\n\n    ax1.set_title(\"Distribusi Quality Metric\")\n    ax1.set_xlabel(\"Quality Metric\")\n    ax1.set_ylabel(\"Frequency\")\n    ax1.legend()\n\n    plt.tight_layout()\n    plt.show()\n    return\n\n\n@app.cell\ndef _(plt, train_labeled):\n    fig2, ax2 = plt.subplots(figsize=(8, 5))\n\n    ax2.scatter(\n        train_labeled[\"critic_score\"],\n        train_labeled[\"quality_metric\"],\n        alpha=0.7\n    )\n\n    ax2.set_xlabel(\"Critic Score\")\n    ax2.set_ylabel(\"Quality Metric\")\n    ax2.set_title(\"Critic Score vs Quality Metric\")\n\n    plt.tight_layout()\n    plt.show()\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Feature Engineering\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(OneHotEncoder, pd, train_labeled):\n    ohe = OneHotEncoder(handle_unknown='ignore', sparse_output=False)\n    ohe.fit(train_labeled[['primary_genre']])\n\n    # Transform, hasilnya array\n    genre_ohe_array = ohe.transform(train_labeled[[\"primary_genre\"]])\n\n    # Ubah jadi DataFrame dengan nama kolom yang jelas\n    genre_ohe_df = pd.DataFrame(\n        genre_ohe_array,\n        columns=ohe.get_feature_names_out([\"primary_genre\"]),\n        index=train_labeled.index  # penting biar index-nya nyambung\n    )\n\n    # Gabungkan dengan DataFrame asli\n    train_labeled_new = pd.concat([train_labeled, genre_ohe_df], axis=1)\n    return ohe, train_labeled_new\n\n\n@app.cell\ndef _(KFold, train_labeled_new):\n    publisher_mean = train_labeled_new.groupby('publisher')['quality_metric'].mean()\n    overall_mean = train_labeled_new['quality_metric'].mean()\n\n    kf = KFold(n_splits=5, shuffle=True, random_state=42)\n    train_labeled_new['publisher_encoded'] = 0.0\n\n    for train_id, val_id in kf.split(train_labeled_new):\n        fold_train = train_labeled_new.iloc[train_id]\n        fold_mean = fold_train.groupby('publisher')['quality_metric'].mean()\n        train_labeled_new.loc[train_labeled_new.index[val_id], 'publisher_encoded'] = train_labeled_new.iloc[val_id]['publisher'].map(fold_mean)\n\n    train_labeled_new['publisher_encoded'] = train_labeled_new['publisher_encoded'].fillna(overall_mean)\n    return overall_mean, publisher_mean\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Modelling\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(train_labeled_new):\n    feature_cols = [col for col in train_labeled_new.columns \n                     if col not in ['id', 'quality_metric', 'game_name', 'primary_genre', \n                                     'publisher', 'developer', 'categories', \n                                     'release_date_df3', 'last_update', 'release_date']]\n\n    feature_cols_v2 = [c for c in feature_cols if c not in ['critic_score', 'genre_weight']]\n\n\n    X= train_labeled_new[feature_cols]\n    y = train_labeled_new[\"quality_metric\"]\n\n    from sklearn.model_selection import train_test_split\n\n    X_train, X_val, y_train, y_val = train_test_split(\n        X, y, test_size = 0.2, random_state=42\n    )\n    return X_train, X_val, feature_cols, y_train, y_val\n\n\n@app.cell\ndef _(X_train, y_train):\n    from sklearn.linear_model import LinearRegression\n    from sklearn.ensemble import RandomForestRegressor\n\n    model = RandomForestRegressor(n_estimators=200, random_state=42, n_jobs=-1)\n    model.fit(X_train, y_train)\n    return (model,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Coba XGBoost\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(X_train, y_train):\n    from xgboost import XGBRegressor\n\n    xgb_model = XGBRegressor(\n        n_estimators=500,\n        max_depth=6,\n        learning_rate=0.05,\n        subsample=0.8,\n        colsample_bytree=0.8,\n        random_state=42,\n        n_jobs=-1\n    )\n    xgb_model.fit(X_train, y_train)\n    return (xgb_model,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Evaluation\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(X_val, model, y_val):\n    from sklearn.metrics import root_mean_squared_error\n\n    y_pred = model.predict(X_val)\n\n    rmse = root_mean_squared_error(y_val, y_pred)\n\n    print(rmse)\n    return (root_mean_squared_error,)\n\n\n@app.cell\ndef _(X_val, root_mean_squared_error, xgb_model, y_val):\n    y_pred_xgb = xgb_model.predict(X_val)\n\n    rmse_xgb = root_mean_squared_error(y_val, y_pred_xgb)\n\n    print(rmse_xgb)\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Making submission\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(ohe, pd, test_labeled):\n    genre_ohe_array_test = ohe.transform(test_labeled[[\"primary_genre\"]])  \n\n    genre_ohe_df_test = pd.DataFrame(\n        genre_ohe_array_test,                           \n        columns=ohe.get_feature_names_out([\"primary_genre\"]),\n        index=test_labeled.index\n    )\n\n    test_labeled_new = pd.concat([test_labeled, genre_ohe_df_test], axis=1) \n    return (test_labeled_new,)\n\n\n@app.cell\ndef _(\n    feature_cols,\n    overall_mean,\n    pd,\n    publisher_mean,\n    test_labeled_new,\n    xgb_model,\n):\n    test_labeled_new['publisher_encoded'] = test_labeled_new['publisher'].map(publisher_mean)\n    test_labeled_new['publisher_encoded'] = test_labeled_new['publisher_encoded'].fillna(overall_mean)\n\n    X_test = test_labeled_new[feature_cols]\n\n    test_predictions = xgb_model.predict(X_test)\n\n    submission = pd.DataFrame({\n        \"id\": test_labeled_new['id'],\n        'quality_metric': test_predictions\n    })\n\n    submission.to_csv('submission.csv', index=False)\n\n    print(submission.tail())\n    return (X_test,)\n\n\n@app.cell\ndef _(np, y_train, y_val):\n    from sklearn.metrics import mean_squared_error\n\n    baseline_pred = np.full_like(y_val, y_train.mean(), dtype=float)\n    baseline_rmse = mean_squared_error(y_val, baseline_pred) ** 0.5\n    print(f\"Baseline (nebak rata-rata): {baseline_rmse:.3f}\")\n    print(f\"RF kamu: 14.127\")\n    return (mean_squared_error,)\n\n\n@app.cell\ndef _(train_labeled_new):\n    # lihat apakah publisher_encoded hampir sama persis dengan quality_metric\n    print(train_labeled_new[['publisher_encoded', 'quality_metric']].corr())\n    return\n\n\n@app.cell\ndef _(X_val, mean_squared_error, xgb_model, y_val):\n    val_pred_xgb = xgb_model.predict(X_val)\n    val_rmse_xgb = mean_squared_error(y_val, val_pred_xgb) ** 0.5\n    print(f\"XGB Val RMSE: {val_rmse_xgb:.3f}\")\n    return\n\n\n@app.cell\ndef _(X_test, X_train):\n    print(X_test.describe())\n    print(X_train.describe())\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.12%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3E%3D0.23.16%22%2C%0A%23%20%20%20%20%20%22matplotlib%3D%3D3.11.1%22%2C%0A%23%20%20%20%20%20%22numpy%3D%3D2.5.1%22%2C%0A%23%20%20%20%20%20%22pandas%3D%3D3.0.5%22%2C%0A%23%20%20%20%20%20%22scikit-learn%3D%3D1.9.0%22%2C%0A%23%20%20%20%20%20%22xgboost%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.23.16%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20import%20numpy%20as%20np%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20from%20sklearn.preprocessing%20import%20OneHotEncoder%0A%20%20%20%20from%20sklearn.model_selection%20import%20KFold%0A%0A%20%20%20%20return%20KFold%2C%20OneHotEncoder%2C%20mo%2C%20np%2C%20pd%2C%20plt%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20EDA%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(pd)%3A%0A%20%20%20%20train%20%3D%20pd.read_csv(%22.%2Fdataset%2Ftrain.csv%22)%0A%20%20%20%20test%20%3D%20pd.read_csv(%22.%2Fdataset%2Ftest.csv%22)%0A%20%20%20%20return%20test%2C%20train%0A%0A%0A%40app.cell%0Adef%20_(test%2C%20train)%3A%0A%20%20%20%20print(%22train%3A%22%2C%20train.shape)%0A%20%20%20%20print(%22test%3A%22%2C%20test.shape)%0A%20%20%20%20train.head()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(train)%3A%0A%20%20%20%20train.info()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(train)%3A%0A%20%20%20%20train.describe()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(plt%2C%20train)%3A%0A%20%20%20%20missing_pct%20%3D%20train.isna().mean().sort_values(ascending%3DFalse)%20*%20100%0A%20%20%20%20missing_pct%20%3D%20missing_pct%5Bmissing_pct%20%3E%200%5D%0A%0A%20%20%20%20fig%2C%20ax%20%3D%20plt.subplots(figsize%3D(8%2C%205))%0A%0A%20%20%20%20ax.barh(%0A%20%20%20%20%20%20%20%20missing_pct.index%2C%0A%20%20%20%20%20%20%20%20missing_pct.values%0A%20%20%20%20)%0A%0A%20%20%20%20ax.set_xlabel(%22%25%20missing%22)%0A%20%20%20%20ax.set_title(%22Missing%20Value%20per%20Column%20(train.csv)%22)%0A%20%20%20%20ax.invert_yaxis()%0A%0A%20%20%20%20plt.tight_layout()%0A%20%20%20%20plt.show()%0A%20%20%20%20return%20(missing_pct%2C)%0A%0A%0A%40app.cell%0Adef%20_(missing_pct)%3A%0A%20%20%20%20print(missing_pct)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Insight%20dari%20missing%20values%0A%20%20%20%20100%25%20release_date_df3%20dan%20categories%20gaguna%20karena%20missing%20semua.%20Maka%2C%20drop%20aja!%20Sisanya%2C%20kita%20coba%20replace%20pake%20mean%20or%20drop%20juga%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(test%2C%20train)%3A%0A%20%20%20%20%23%20Drop%20kolom%20yang%20100%25%20kosong%20DI%20TEST%20(karena%20percuma%20jadi%20fitur%20kalau%20test-nya%20kosong%20semua)%0A%20%20%20%20cols_to_drop%20%3D%20%5B%22categories%22%2C%20%22release_date_df3%22%2C%20%22last_update%22%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22NA_Sales%22%2C%20%22EU_Sales%22%2C%20%22JP_Sales%22%2C%20%22Other_Sales%22%2C%20%22other_sales%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22release_date%22%5D%20%20%23%20release_date%20juga%20di-drop%20karena%2095%25%20missing%20di%20test%0A%0A%20%20%20%20train_labeled%20%3D%20train.drop(columns%3Dcols_to_drop)%0A%20%20%20%20test_labeled%20%3D%20test.drop(columns%3Dcols_to_drop)%0A%0A%20%20%20%20%23%20developer%20cuma%20missing%20dikit%20(4.7%25%20train%2C%200.1%25%20test)%20-%3E%20aman%20diisi%2C%20JANGAN%20di-drop%20barisnya%0A%20%20%20%20train_labeled%5B'developer'%5D%20%3D%20train_labeled%5B'developer'%5D.fillna('Unknown')%0A%20%20%20%20test_labeled%5B'developer'%5D%20%3D%20test_labeled%5B'developer'%5D.fillna('Unknown')%0A%0A%20%20%20%20%23%20untuk%20kolom%20numerik%20lain%20yang%20mungkin%20masih%20ada%20NaN%2C%20isi%20pakai%20mean%20DARI%20TRAIN%0A%20%20%20%20%23%20(bukan%20mean%20masing-masing%2C%20biar%20konsisten%20%26%20tidak%20bocor%20info)%0A%20%20%20%20numeric_cols%20%3D%20train_labeled.select_dtypes(include%3D'number').columns.drop('quality_metric'%2C%20errors%3D'ignore')%0A%20%20%20%20train_means%20%3D%20train_labeled%5Bnumeric_cols%5D.mean()%0A%0A%20%20%20%20train_labeled%5Bnumeric_cols%5D%20%3D%20train_labeled%5Bnumeric_cols%5D.fillna(train_means)%0A%20%20%20%20test_labeled%5Bnumeric_cols.intersection(test_labeled.columns)%5D%20%3D%20test_labeled%5Bnumeric_cols.intersection(test_labeled.columns)%5D.fillna(train_means)%0A%0A%20%20%20%20print(f%22train.csv%20rows%3A%20%7Blen(train)%7D%22)%0A%20%20%20%20print(f%22train_labeled%20rows%3A%20%7Blen(train_labeled)%7D%22)%20%20%23%20harusnya%20~56145%2C%20tidak%20menyusut%0A%20%20%20%20print(f%22test.csv%20rows%3A%20%7Blen(test)%7D%22)%0A%20%20%20%20print(f%22test_labeled%20rows%3A%20%7Blen(test_labeled)%7D%22)%20%20%20%20%20%23%20harusnya%20tetap%2068983%2C%20tidak%20menyusut%0A%20%20%20%20return%20test_labeled%2C%20train_labeled%0A%0A%0A%40app.cell%0Adef%20_(train_labeled)%3A%0A%20%20%20%20train_labeled.head()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Plotting%20trend%20dan%20distribusi%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(plt%2C%20train_labeled)%3A%0A%20%20%20%20fig1%2C%20ax1%20%3D%20plt.subplots(figsize%3D(8%2C%205))%0A%0A%20%20%20%20ax1.hist(%0A%20%20%20%20%20%20%20%20train_labeled%5B%22quality_metric%22%5D.dropna()%2C%0A%20%20%20%20%20%20%20%20bins%3D15%0A%20%20%20%20)%0A%0A%20%20%20%20mean_val%20%3D%20train_labeled%5B%22quality_metric%22%5D.mean()%0A%20%20%20%20median_val%20%3D%20train_labeled%5B%22quality_metric%22%5D.median()%0A%0A%20%20%20%20ax1.axvline(mean_val%2C%20label%3Df%22Mean%3A%20%7Bmean_val%3A.2f%7D%22)%0A%20%20%20%20ax1.axvline(%0A%20%20%20%20%20%20%20%20median_val%2C%0A%20%20%20%20%20%20%20%20linestyle%3D%22%3A%22%2C%0A%20%20%20%20%20%20%20%20label%3Df%22Median%3A%20%7Bmedian_val%3A.2f%7D%22%0A%20%20%20%20)%0A%0A%20%20%20%20ax1.set_title(%22Distribusi%20Quality%20Metric%22)%0A%20%20%20%20ax1.set_xlabel(%22Quality%20Metric%22)%0A%20%20%20%20ax1.set_ylabel(%22Frequency%22)%0A%20%20%20%20ax1.legend()%0A%0A%20%20%20%20plt.tight_layout()%0A%20%20%20%20plt.show()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(plt%2C%20train_labeled)%3A%0A%20%20%20%20fig2%2C%20ax2%20%3D%20plt.subplots(figsize%3D(8%2C%205))%0A%0A%20%20%20%20ax2.scatter(%0A%20%20%20%20%20%20%20%20train_labeled%5B%22critic_score%22%5D%2C%0A%20%20%20%20%20%20%20%20train_labeled%5B%22quality_metric%22%5D%2C%0A%20%20%20%20%20%20%20%20alpha%3D0.7%0A%20%20%20%20)%0A%0A%20%20%20%20ax2.set_xlabel(%22Critic%20Score%22)%0A%20%20%20%20ax2.set_ylabel(%22Quality%20Metric%22)%0A%20%20%20%20ax2.set_title(%22Critic%20Score%20vs%20Quality%20Metric%22)%0A%0A%20%20%20%20plt.tight_layout()%0A%20%20%20%20plt.show()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Feature%20Engineering%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(OneHotEncoder%2C%20pd%2C%20train_labeled)%3A%0A%20%20%20%20ohe%20%3D%20OneHotEncoder(handle_unknown%3D'ignore'%2C%20sparse_output%3DFalse)%0A%20%20%20%20ohe.fit(train_labeled%5B%5B'primary_genre'%5D%5D)%0A%0A%20%20%20%20%23%20Transform%2C%20hasilnya%20array%0A%20%20%20%20genre_ohe_array%20%3D%20ohe.transform(train_labeled%5B%5B%22primary_genre%22%5D%5D)%0A%0A%20%20%20%20%23%20Ubah%20jadi%20DataFrame%20dengan%20nama%20kolom%20yang%20jelas%0A%20%20%20%20genre_ohe_df%20%3D%20pd.DataFrame(%0A%20%20%20%20%20%20%20%20genre_ohe_array%2C%0A%20%20%20%20%20%20%20%20columns%3Dohe.get_feature_names_out(%5B%22primary_genre%22%5D)%2C%0A%20%20%20%20%20%20%20%20index%3Dtrain_labeled.index%20%20%23%20penting%20biar%20index-nya%20nyambung%0A%20%20%20%20)%0A%0A%20%20%20%20%23%20Gabungkan%20dengan%20DataFrame%20asli%0A%20%20%20%20train_labeled_new%20%3D%20pd.concat(%5Btrain_labeled%2C%20genre_ohe_df%5D%2C%20axis%3D1)%0A%20%20%20%20return%20ohe%2C%20train_labeled_new%0A%0A%0A%40app.cell%0Adef%20_(KFold%2C%20train_labeled_new)%3A%0A%20%20%20%20publisher_mean%20%3D%20train_labeled_new.groupby('publisher')%5B'quality_metric'%5D.mean()%0A%20%20%20%20overall_mean%20%3D%20train_labeled_new%5B'quality_metric'%5D.mean()%0A%0A%20%20%20%20kf%20%3D%20KFold(n_splits%3D5%2C%20shuffle%3DTrue%2C%20random_state%3D42)%0A%20%20%20%20train_labeled_new%5B'publisher_encoded'%5D%20%3D%200.0%0A%0A%20%20%20%20for%20train_id%2C%20val_id%20in%20kf.split(train_labeled_new)%3A%0A%20%20%20%20%20%20%20%20fold_train%20%3D%20train_labeled_new.iloc%5Btrain_id%5D%0A%20%20%20%20%20%20%20%20fold_mean%20%3D%20fold_train.groupby('publisher')%5B'quality_metric'%5D.mean()%0A%20%20%20%20%20%20%20%20train_labeled_new.loc%5Btrain_labeled_new.index%5Bval_id%5D%2C%20'publisher_encoded'%5D%20%3D%20train_labeled_new.iloc%5Bval_id%5D%5B'publisher'%5D.map(fold_mean)%0A%0A%20%20%20%20train_labeled_new%5B'publisher_encoded'%5D%20%3D%20train_labeled_new%5B'publisher_encoded'%5D.fillna(overall_mean)%0A%20%20%20%20return%20overall_mean%2C%20publisher_mean%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Modelling%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(train_labeled_new)%3A%0A%20%20%20%20feature_cols%20%3D%20%5Bcol%20for%20col%20in%20train_labeled_new.columns%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20col%20not%20in%20%5B'id'%2C%20'quality_metric'%2C%20'game_name'%2C%20'primary_genre'%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20'publisher'%2C%20'developer'%2C%20'categories'%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20'release_date_df3'%2C%20'last_update'%2C%20'release_date'%5D%5D%0A%0A%20%20%20%20feature_cols_v2%20%3D%20%5Bc%20for%20c%20in%20feature_cols%20if%20c%20not%20in%20%5B'critic_score'%2C%20'genre_weight'%5D%5D%0A%0A%0A%20%20%20%20X%3D%20train_labeled_new%5Bfeature_cols%5D%0A%20%20%20%20y%20%3D%20train_labeled_new%5B%22quality_metric%22%5D%0A%0A%20%20%20%20from%20sklearn.model_selection%20import%20train_test_split%0A%0A%20%20%20%20X_train%2C%20X_val%2C%20y_train%2C%20y_val%20%3D%20train_test_split(%0A%20%20%20%20%20%20%20%20X%2C%20y%2C%20test_size%20%3D%200.2%2C%20random_state%3D42%0A%20%20%20%20)%0A%20%20%20%20return%20X_train%2C%20X_val%2C%20feature_cols%2C%20y_train%2C%20y_val%0A%0A%0A%40app.cell%0Adef%20_(X_train%2C%20y_train)%3A%0A%20%20%20%20from%20sklearn.linear_model%20import%20LinearRegression%0A%20%20%20%20from%20sklearn.ensemble%20import%20RandomForestRegressor%0A%0A%20%20%20%20model%20%3D%20RandomForestRegressor(n_estimators%3D200%2C%20random_state%3D42%2C%20n_jobs%3D-1)%0A%20%20%20%20model.fit(X_train%2C%20y_train)%0A%20%20%20%20return%20(model%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Coba%20XGBoost%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(X_train%2C%20y_train)%3A%0A%20%20%20%20from%20xgboost%20import%20XGBRegressor%0A%0A%20%20%20%20xgb_model%20%3D%20XGBRegressor(%0A%20%20%20%20%20%20%20%20n_estimators%3D500%2C%0A%20%20%20%20%20%20%20%20max_depth%3D6%2C%0A%20%20%20%20%20%20%20%20learning_rate%3D0.05%2C%0A%20%20%20%20%20%20%20%20subsample%3D0.8%2C%0A%20%20%20%20%20%20%20%20colsample_bytree%3D0.8%2C%0A%20%20%20%20%20%20%20%20random_state%3D42%2C%0A%20%20%20%20%20%20%20%20n_jobs%3D-1%0A%20%20%20%20)%0A%20%20%20%20xgb_model.fit(X_train%2C%20y_train)%0A%20%20%20%20return%20(xgb_model%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Evaluation%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(X_val%2C%20model%2C%20y_val)%3A%0A%20%20%20%20from%20sklearn.metrics%20import%20root_mean_squared_error%0A%0A%20%20%20%20y_pred%20%3D%20model.predict(X_val)%0A%0A%20%20%20%20rmse%20%3D%20root_mean_squared_error(y_val%2C%20y_pred)%0A%0A%20%20%20%20print(rmse)%0A%20%20%20%20return%20(root_mean_squared_error%2C)%0A%0A%0A%40app.cell%0Adef%20_(X_val%2C%20root_mean_squared_error%2C%20xgb_model%2C%20y_val)%3A%0A%20%20%20%20y_pred_xgb%20%3D%20xgb_model.predict(X_val)%0A%0A%20%20%20%20rmse_xgb%20%3D%20root_mean_squared_error(y_val%2C%20y_pred_xgb)%0A%0A%20%20%20%20print(rmse_xgb)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Making%20submission%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(ohe%2C%20pd%2C%20test_labeled)%3A%0A%20%20%20%20genre_ohe_array_test%20%3D%20ohe.transform(test_labeled%5B%5B%22primary_genre%22%5D%5D)%20%20%0A%0A%20%20%20%20genre_ohe_df_test%20%3D%20pd.DataFrame(%0A%20%20%20%20%20%20%20%20genre_ohe_array_test%2C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20columns%3Dohe.get_feature_names_out(%5B%22primary_genre%22%5D)%2C%0A%20%20%20%20%20%20%20%20index%3Dtest_labeled.index%0A%20%20%20%20)%0A%0A%20%20%20%20test_labeled_new%20%3D%20pd.concat(%5Btest_labeled%2C%20genre_ohe_df_test%5D%2C%20axis%3D1)%20%0A%20%20%20%20return%20(test_labeled_new%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20feature_cols%2C%0A%20%20%20%20overall_mean%2C%0A%20%20%20%20pd%2C%0A%20%20%20%20publisher_mean%2C%0A%20%20%20%20test_labeled_new%2C%0A%20%20%20%20xgb_model%2C%0A)%3A%0A%20%20%20%20test_labeled_new%5B'publisher_encoded'%5D%20%3D%20test_labeled_new%5B'publisher'%5D.map(publisher_mean)%0A%20%20%20%20test_labeled_new%5B'publisher_encoded'%5D%20%3D%20test_labeled_new%5B'publisher_encoded'%5D.fillna(overall_mean)%0A%0A%20%20%20%20X_test%20%3D%20test_labeled_new%5Bfeature_cols%5D%0A%0A%20%20%20%20test_predictions%20%3D%20xgb_model.predict(X_test)%0A%0A%20%20%20%20submission%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%22id%22%3A%20test_labeled_new%5B'id'%5D%2C%0A%20%20%20%20%20%20%20%20'quality_metric'%3A%20test_predictions%0A%20%20%20%20%7D)%0A%0A%20%20%20%20submission.to_csv('submission.csv'%2C%20index%3DFalse)%0A%0A%20%20%20%20print(submission.tail())%0A%20%20%20%20return%20(X_test%2C)%0A%0A%0A%40app.cell%0Adef%20_(np%2C%20y_train%2C%20y_val)%3A%0A%20%20%20%20from%20sklearn.metrics%20import%20mean_squared_error%0A%0A%20%20%20%20baseline_pred%20%3D%20np.full_like(y_val%2C%20y_train.mean()%2C%20dtype%3Dfloat)%0A%20%20%20%20baseline_rmse%20%3D%20mean_squared_error(y_val%2C%20baseline_pred)%20**%200.5%0A%20%20%20%20print(f%22Baseline%20(nebak%20rata-rata)%3A%20%7Bbaseline_rmse%3A.3f%7D%22)%0A%20%20%20%20print(f%22RF%20kamu%3A%2014.127%22)%0A%20%20%20%20return%20(mean_squared_error%2C)%0A%0A%0A%40app.cell%0Adef%20_(train_labeled_new)%3A%0A%20%20%20%20%23%20lihat%20apakah%20publisher_encoded%20hampir%20sama%20persis%20dengan%20quality_metric%0A%20%20%20%20print(train_labeled_new%5B%5B'publisher_encoded'%2C%20'quality_metric'%5D%5D.corr())%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(X_val%2C%20mean_squared_error%2C%20xgb_model%2C%20y_val)%3A%0A%20%20%20%20val_pred_xgb%20%3D%20xgb_model.predict(X_val)%0A%20%20%20%20val_rmse_xgb%20%3D%20mean_squared_error(y_val%2C%20val_pred_xgb)%20**%200.5%0A%20%20%20%20print(f%22XGB%20Val%20RMSE%3A%20%7Bval_rmse_xgb%3A.3f%7D%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(X_test%2C%20X_train)%3A%0A%20%20%20%20print(X_test.describe())%0A%20%20%20%20print(X_train.describe())%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "edit",
+            "version": "0.23.16",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "dark"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
