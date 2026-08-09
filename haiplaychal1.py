@@ -1,3 +1,16 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "marimo>=0.23.16",
+#     "matplotlib==3.11.1",
+#     "numpy==2.5.1",
+#     "pandas==3.0.5",
+#     "scikit-learn==1.9.0",
+#     "seaborn==0.13.2",
+#     "xgboost",
+# ]
+# ///
+
 import marimo
 
 __generated_with = "0.23.16"
@@ -360,6 +373,61 @@ def _(X_val, mean_squared_error, xgb_model, y_val):
 def _(X_test, X_train):
     print(X_test.describe())
     print(X_train.describe())
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 
