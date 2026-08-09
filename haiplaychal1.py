@@ -6,7 +6,6 @@
 #     "numpy==2.5.1",
 #     "pandas==3.0.5",
 #     "scikit-learn==1.9.0",
-#     "seaborn",
 #     "xgboost",
 # ]
 # ///
